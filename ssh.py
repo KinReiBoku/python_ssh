@@ -2,23 +2,23 @@
 
 import ssh
 
-# Ú‘±î•ñ
+# æ¥ç¶šæƒ…å ±
 HOST = '192.168.43.50'
 USER = 'default'
 PASS = 'password'
 PORT = 22
 
-# sshÚ‘±
+# sshæ¥ç¶š
 ssh = ssh.SSHClient()
 ssh.load_system_host_keys()
 ssh.connect(HOST, username=USER, password=PASS, port=PORT)
 
-# ƒRƒ}ƒ“ƒhÀs
-stdin, stdout, stderr = ssh.exec_command('powershell .\\New-Folder.ps1')
+# ã‚³ãƒãƒ³ãƒ‰å®Ÿè¡Œ
+stdin, stdout, stderr = ssh.exec_command('ls -l')
 
-# ÀsŒ‹‰Êo—Í
+# å®Ÿè¡Œçµæœå‡ºåŠ›
 for line in stdout.read().split('\n'):
 	print line
 
-# Ø’f
+# åˆ‡æ–­
 ssh.close()
